@@ -62,10 +62,10 @@ module.exports = function(grunt) {
     clean: {
       css: [
         'css/**/*',
-        'scss/_base.scss'
+        'scss/_base.scss',
         'scss/_component.scss',
         'scss/_layout.scss',
-        'scss/_skin.scss'],
+        'scss/_skin.scss',
         'scss/core/_variables.scss',
         'scss/core/_functions.scss',
         'scss/core/_mixins.scss'
