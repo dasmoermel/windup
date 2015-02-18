@@ -1,0 +1,40 @@
+name        = Windup
+description = A clean theme for Drupal 7
+core        = 7.x
+
+; Remove Drupal core styles.
+stylesheets[all][]      = system.theme.css
+stylesheets[all][]      = system.menus.css
+stylesheets[all][]      = system.messages.css
+stylesheets[all][]      = system.base.css
+
+; Stylesheets
+;
+; Don't add any external libraries (e.g. normalize.css) here, use bower and
+; grunt wiredep (see README.md)
+
+; DO NOT REMOVE OR EDIT BETWEEN THESE LINES
+; bower:css
+stylesheets[all][] = bower_components/drupal-normalize-css/normalize.css
+; endbower
+
+; Local Stylesheets
+stylesheets[all][] = css/style.css
+
+; JavaScripts
+;
+; Don't add any external libraries (e.g. enquire, masonry etc) here, use bower
+; and grunt wiredep (see README.md)
+
+; DO NOT REMOVE OR EDIT BETWEEN THESE LINES
+; bower:js
+scripts[] = bower_components/modernizr/modernizr.js
+; endbower
+
+; Local JavaScript
+; scripts[] = js/mytheme.js
+
+regions[header]         = Header
+regions[help]           = Help Messages
+regions[content]        = Content
+regions[footer]         = Footer
