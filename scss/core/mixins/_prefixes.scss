@@ -1,0 +1,9 @@
+// set vendor prefixes
+@mixin vendor($property, $value) {
+  @each $vendor in map-keys($prefixes) {
+    @if map-get($prefixes, $vendor) == true {
+      -#{$vendor}-#{$property}: #{$value};
+    }
+  }
+  #{$property}: #{$value};
+}

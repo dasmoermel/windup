@@ -1,0 +1,32 @@
+// Aspect Ratio Mixin
+
+///
+/// <div class="ratio">
+///   <div class="ratio--content">
+///     <h3>Hallo Welt!</h3>
+///     <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+///   </div>
+/// </div>
+
+@mixin set-ratio($ratio: 1 1, $width: 100%) {
+  @if length($ratio) < 2 or length($ratio) > 2 {
+    @warn "$ratio must be a list with two values.";
+  }
+  position: relative;
+  display: block;
+  width: $width;
+  overflow: hidden;
+  &:before {
+    content: "";
+    display: block;
+    padding-top: percentage(nth($ratio, 2) / nth($ratio, 1));
+  }
+  // Content
+  .ratio--content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}

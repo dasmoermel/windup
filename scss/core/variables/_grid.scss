@@ -1,0 +1,54 @@
+// Susy Grid Settings
+
+// showing debug grid
+$debug-grid:                    false;
+
+// setting border-box as boxmodel
+$border-box:                    true;
+
+// breakpoints
+$breakpoint-no-query-fallbacks: true;
+$breakpoint-to-ems: true;
+
+// Main Breakpoints
+$breakpoints: (
+  small: 30em,
+  medium: 47em,
+  large: 64.5em,
+);
+
+// susy grid system
+// defaults
+$susy: (
+  columns:                      4,
+  gutters:                      1/2,
+  math:                         fluid,
+  output:                       float,
+  gutter-position:              after,
+  debug: (
+    image:                      if($debug-grid == true, show, hide),
+    output:                     background,
+  ),
+  use-custom: (
+    background-image:           true,
+    background-options:         false,
+    box-sizing:                 true,
+    clearfix:                   false,
+    rem:                        true,
+  )
+);
+
+$layouts: (
+  small: (
+    container: auto,
+    columns: 4,
+  ),
+  medium: (
+    container: auto,
+    columns: 13,
+  ),
+  large: (
+    container: 80em,
+    columns: 12,
+  ),
+);

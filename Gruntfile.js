@@ -121,11 +121,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-wiredep');
   grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-sassdoc');
 
   grunt.registerTask('default', [
     'clean',
     'wiredep',
     'sass_globbing',
-    'compass:dist'
+    'compass:dist',
+    'shell'
   ]);
 };

@@ -1,0 +1,5 @@
+// Compass Vertical Rhythm Settings
+$base-font-size:                  20px; // Sets the base font size
+$base-line-height:                $base-font-size * 1.4; // Sets the base line height
+$round-to-nearest-half-line:      true; // Allows compass to round to  multiples of 0.5x line height
+$rhythm-unit:                     "rem"; // Sets rhythm unit to rem. Remove to use default em unit.

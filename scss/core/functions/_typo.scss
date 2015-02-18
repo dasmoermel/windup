@@ -1,0 +1,25 @@
+// Typography getter functions
+//
+// @author Marc Dinse
+//
+// @param {Object} $key   - value to clamp
+//
+// @return {Object} - Font Family Stack
+@function font-family($key) {
+  @if map-has-key($fonts, $key) {
+    @return map-get($fonts, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $fonts.";
+  @return null;
+}
+
+// font weight getter function
+@function font-weight($key) {
+  @if map-has-key($weights, $key) {
+    @return map-get($weights, $key);
+  }
+
+  @warn "Unknown '#{$key}' in $weights.";
+  @return null;
+}
