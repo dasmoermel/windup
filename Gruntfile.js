@@ -62,6 +62,8 @@ module.exports = function(grunt) {
     clean: {
       css: [
         'css/**/*',
+      ],
+      scss: [
         'scss/_base.scss',
         'scss/_component.scss',
         'scss/_layout.scss',
@@ -69,7 +71,10 @@ module.exports = function(grunt) {
         'scss/core/_variables.scss',
         'scss/core/_functions.scss',
         'scss/core/_mixins.scss'
-      ]
+      ],
+      sassdoc: [
+        'sassdoc/*',
+      ],
     },
     shell: {
       all: {
@@ -132,13 +137,18 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sassdoc');
 
   grunt.registerTask('default', [
-    'clean',
+    'clean:css',
+    'clean:scss',
     'wiredep',
     'sass_globbing',
     'compass:dist',
     'shell'
   ]);
-  grunt.registerTask('glob', [
-    'sass_globbing',
-  ]);
+  grunt.registerTask('doc', [
+      'clean:sassdoc',
+      'clean:scss',
+      'sass_globbing',
+      'sassdoc'
+    ]
+  );
 };
