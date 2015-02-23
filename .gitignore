@@ -25,5 +25,4 @@ scss/_layout.scss
 scss/_skin.scss
 
 # Ignore compiled sassdoc- Files
-sassdoc/
-sassdoc/*
+sassdoc
