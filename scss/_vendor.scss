@@ -1,8 +1,9 @@
 @import "compass";
 @import "breakpoint";
 @import "susy";
-@import "sassy-maps";
+
 // DO NOT REMOVE OR EDIT ANYTHING BETWEEN THESE LINES.
 // Use bower instead! @see README.md
 // bower:scss
+@import "../bower_components/sassy-maps/sass/_sassy-maps.scss";
 // endbower

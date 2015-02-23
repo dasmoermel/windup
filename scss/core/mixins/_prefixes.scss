@@ -1,4 +1,6 @@
-// set vendor prefixes
+/// Generates Vendor Prefixes
+/// @param {String} $property - CSS Property
+/// @param {String} $value - Property Value
 @mixin vendor($property, $value) {
   @each $vendor in map-keys($prefixes) {
     @if map-get($prefixes, $vendor) == true {

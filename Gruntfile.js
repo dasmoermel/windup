@@ -112,6 +112,14 @@ module.exports = function(grunt) {
         }
       }
     },
+    sassdoc: {
+      default: {
+        src: [
+          'scss/**/*.scss',
+          'bower_components/**/*.scss',
+        ]
+      },
+    },
   });
 
 
@@ -129,5 +137,8 @@ module.exports = function(grunt) {
     'sass_globbing',
     'compass:dist',
     'shell'
+  ]);
+  grunt.registerTask('glob', [
+    'sass_globbing',
   ]);
 };

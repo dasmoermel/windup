@@ -1,4 +1,6 @@
-// z-index getter function
+/// Z-Layer mixin
+/// @param {String} $key - Z- Layer String
+/// @return {Number} - z-index
 @function z($key) {
   @if map-has-key($z-layers, $key) {
     @return map-get($z-layers, $key);

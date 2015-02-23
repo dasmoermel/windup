@@ -1,0 +1,104 @@
+.row {
+  @include full;
+  @include break;
+}
+
+.col__25 {
+  @include gallery(6 of 12);
+}
+
+@include respond-to(medium) {
+  .col__25 {
+    @include span(3 of 12);
+  }
+  .col__33 {
+    @include span(5 of 13);
+  }
+  .col__50 {
+    @include span(6 of 12);
+  }
+  .col__66 {
+    @include span(8 of 13);
+  }
+  .col__75 {
+    @include span(9 of 12);
+  }
+}
+@include respond-to(large) {
+    .col__25 {
+      @include span(3 of 12);
+    }
+    .col__33 {
+      @include span(4 of 12);
+    }
+    .col__50 {
+      @include span(6 of 12);
+    }
+    .col__66 {
+      @include span(8 of 12);
+    }
+    .col__75 {
+      @include span(9 of 12);
+    }
+}
+
+.col {
+  &:first-child{
+    @include first;
+  }
+  &:last-child{
+    @include last;
+  }
+}
+
+
+
+
+
+.susy-symphony,
+.susy-chamber {
+  @include respond-to(small) {
+    .col__66,
+    .col__33 {
+      @include full;
+    }
+    .col__50,
+    .col__25 {
+      @include gallery(6 of 12);
+    }
+  }
+  @include respond-to(medium) {
+    .col__66,
+    .col__33 {
+      clear: none;
+    }
+    .col__66 {
+      @include span(8 of 13);
+      @include last;
+    }
+    .col__33 {
+      @include span(5 of 13);
+    }
+    .col__50 {
+      @include gallery(4 of 8);
+    }
+    .col__5050 {
+      @include gallery(2 of 4)
+    }
+    .col__25 {
+      @include gallery(4 of 8);
+    }
+  }
+  @include respond-to(large) {
+    .col__66 {
+      @include span(8 of 12);
+      @include last;
+    }
+    .col__33 {
+      @include span(4 of 12);
+    }
+    .col__25 {
+      @include gallery(2 of 8);
+    }
+  }
+}

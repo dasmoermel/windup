@@ -1,9 +1,6 @@
-// brand color getter function
-@function color($key) {
-  @if map-has-key($colors, $key) {
-    @return map-get($colors, $key);
-  }
-
-  @warn "Unknown `#{$key}` in $colors.";
-  @return null;
+/// Get Color in nested Map
+/// @param {Arglist} $keys - keys to fetch
+/// @return {String} - Color Code
+@function color($keys...) {
+  @return map-get-deep($colors, $keys...);
 }
