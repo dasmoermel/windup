@@ -72,8 +72,8 @@ module.exports = function(grunt) {
         'scss/core/_functions.scss',
         'scss/core/_mixins.scss'
       ],
-      sassdoc: [
-        'sassdoc/*',
+      docs: [
+        'docs/sassdoc/**/*'
       ],
     },
     shell: {
@@ -122,7 +122,10 @@ module.exports = function(grunt) {
         src: [
           'scss/**/*.scss',
           'bower_components/**/*.scss',
-        ]
+        ],
+        options: {
+          dest: 'docs/sassdoc'
+        }
       },
     },
   });
@@ -144,8 +147,8 @@ module.exports = function(grunt) {
     'compass:dist',
     'shell'
   ]);
-  grunt.registerTask('doc', [
-      'clean:sassdoc',
+  grunt.registerTask('docs', [
+      'clean:docs',
       'clean:scss',
       'sass_globbing',
       'sassdoc'
