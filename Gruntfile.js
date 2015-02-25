@@ -128,6 +128,13 @@ module.exports = function(grunt) {
         }
       },
     },
+    kss: {
+      dist: {
+        files: {
+          'docs/styleguide': ['scss/style.scss']
+        }
+      }
+    }
   });
 
 
@@ -138,6 +145,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-wiredep');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-sassdoc');
+  grunt.loadNpmTasks('grunt-kss');
 
   grunt.registerTask('default', [
     'clean:css',
@@ -151,7 +159,8 @@ module.exports = function(grunt) {
       'clean:docs',
       'clean:scss',
       'sass_globbing',
-      'sassdoc'
+      'sassdoc',
+      'kss',
     ]
   );
 };
