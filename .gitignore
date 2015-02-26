@@ -20,9 +20,13 @@ bower_components
 .sass-cache
 
 # Ignore files that get auto filled
+scss/_base.scss
 scss/_component.scss
 scss/_layout.scss
 scss/_skin.scss
+scss/core/_variable.scss
+scss/core/_functions.scss
+scss/core/_mixins.scss
 
 # Ignore compiled sassdoc- Files
 docs
