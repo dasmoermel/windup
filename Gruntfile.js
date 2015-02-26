@@ -70,10 +70,14 @@ module.exports = function(grunt) {
         'scss/_skin.scss',
         'scss/core/_variables.scss',
         'scss/core/_functions.scss',
-        'scss/core/_mixins.scss'
+        'scss/core/_mixins.scss',
+      ],
+      cache: [
+        ".sass-cache/**/*",
       ],
       docs: [
-        'docs/sassdoc/**/*'
+        'docs/sassdoc/**/*',
+        'docs/styleguide/**/*'
       ],
     },
     shell: {
@@ -128,13 +132,33 @@ module.exports = function(grunt) {
         }
       },
     },
-    kss: {
-      dist: {
-        files: {
-          'docs/styleguide': ['scss/style.scss']
+    styleguide: {
+      options: {
+        template: {
+          src: 'node_modules/grunt-styleguide/templates/kss'
+        },
+        framework: {
+          name: 'kss'
         }
+      },
+      all: {
+        files: [{
+          'docs/styleguide': 'css/*.css'
+        }]
       }
-    }
+    },
+    copy: {
+      styleguide: {
+        files: [
+          {
+            expand: true,
+            flatten: true,
+            src: ['scss/styleguide.md'],
+            dest: 'css/',
+          }
+        ],
+      },
+    },
   });
 
 
@@ -144,8 +168,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-wiredep');
   grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-sassdoc');
-  grunt.loadNpmTasks('grunt-kss');
+  grunt.loadNpmTasks('grunt-styleguide');
 
   grunt.registerTask('default', [
     'clean:css',
@@ -153,14 +178,16 @@ module.exports = function(grunt) {
     'wiredep',
     'sass_globbing',
     'compass:dist',
-    'shell'
+    //'shell'
   ]);
   grunt.registerTask('docs', [
-      'clean:docs',
-      'clean:scss',
+      'clean',
+      'copy:styleguide',
+      'wiredep',
       'sass_globbing',
+      'compass:dev',
       'sassdoc',
-      'kss',
+      'styleguide',
     ]
   );
 };
