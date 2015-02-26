@@ -1,5 +1,5 @@
 # Windup
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/Lullabot/mytheme?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/Lullabot/windup?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 A starter theme for Drupal. It's pretty light. It's made to be cloned and then hacked, please don't use me as a base theme!
 
@@ -31,15 +31,15 @@ $ bower update
 
 You can also enable sourcemaps and full tracebacks on error in Gruntfile.js
 
-If you wish to rename mytheme to a different name (which you probably do), YMMV but you can try:
+If you wish to rename windup to a different name (which you probably do), YMMV but you can try:
 ```bash
-$ grep -rl mytheme * | xargs sed -i .bk 's/mytheme/mytheme/g'
+$ grep -rl windup * | xargs sed -i .bk 's/windup/mytheme/g'
 $ rm *.bk
 ```
 
 and then rename the files listed by 
 ```bash
-find . -not -path '*/.*/*' -not -name '.*' -name '*mytheme*'
+find . -not -path '*/.*/*' -not -name '.*' -name '*windup*'
 ```
 
 ## Usage
@@ -66,11 +66,11 @@ If you're using ```grunt watch``` and click the [LiveReload](https://chrome.goog
 $ grunt wiredep
 ```
 
-This will wire the Bower components specified in ```bower.json``` into ```mytheme.info``` and ```_vendor.scss``` (See below).
+This will wire the Bower components specified in ```bower.json``` into ```windup.info``` and ```_vendor.scss``` (See below).
 
 ## Dependencies
 
-This will add your externally obtained JavaScript and CSS, as well as all it's necessary dependencies, into mytheme.info
+This will add your externally obtained JavaScript and CSS, as well as all it's necessary dependencies, into windup.info
 
 ```bash
 $ bower install <package> --save
@@ -86,6 +86,26 @@ $ grunt wiredep
 
 Where <package> is a registered package, GitHub shorthand (e.g. " desandro/masonry"), Git endpoint (e.g. "git://github.com/user/package.git") or a URL (e.g. "http://example.com/script.js").
 You can also edit ```bower.json``` directly.
+
+## Template Suggestions and Classes
+Template suggestions across all core (Node, User, Taxonomy Term and Comment) and Entity API defined entity types have been normalised to the following:
+
+```
+<entity type>
+<entity type>__view_mode__<view mode>
+<entity_type>__<bundle>
+<entity_type>__<bundle>__<view mode>
+<entity_type>__<entity id>
+<entity_type>__<entity id>__<view mode>
+```
+
+There is one exception to this. The core user entity, [uses "user-profile" as the entity type for template suggestions](https://api.drupal.org/api/drupal/modules%21user%21user.module/function/user_view/7) instead of "user".
+
+The following classes can be found on all the above rendered entities:
+```
+<entity type> <entity type>-<id> type-<bundle> view-mode-<view mode>
+
+```
 
 ## Installing new Node.js modules
 

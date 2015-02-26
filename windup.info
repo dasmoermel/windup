@@ -32,7 +32,7 @@ scripts[] = bower_components/modernizr/modernizr.js
 ; endbower
 
 ; Local JavaScript
-; scripts[] = js/mytheme.js
+; scripts[] = js/windup.js
 
 regions[header]         = Header
 regions[help]           = Help Messages
